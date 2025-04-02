@@ -1,0 +1,30 @@
+.reset {
+    all: unset;
+    display: inline-block; 
+    cursor: pointer; 
+    text-align: center;
+    padding: 0; 
+    margin: 0; 
+    border: none; 
+    background: none; 
+    font: inherit; 
+    color: inherit; 
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px 5px;
+    color: rgb(181, 178, 178);
+    background: rgb(76, 73, 73);
+    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    transition-duration: 0.5s;
+}
+.button:hover {
+    background: rgb(181, 178, 178);
+    color: rgb(19, 2, 2);
+}
