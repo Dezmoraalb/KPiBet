@@ -66,7 +66,6 @@ def get_rps_webapp_kb(l10n: FluentLocalization):
 
     return kb
 
-
 def get_ttt_webapp_kb(l10n: FluentLocalization):
     """Клавіатура для веб-додатку гри камінь-ножиці-папір"""
     kb = ReplyKeyboardMarkup(
@@ -82,3 +81,4 @@ def get_ttt_webapp_kb(l10n: FluentLocalization):
     )
 
     return kb
+
