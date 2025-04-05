@@ -70,6 +70,7 @@ async def get_top_users(session: AsyncSession, limit: int = 3) -> List[User]:
     result = await session.execute(stmt)
     return result.scalars().all()
 
+
 async def get_user_rank(session: AsyncSession, user_id: int) -> int:
     """Отримати позицію користувача в рейтингу"""
     user_xp_subquery = select(User.xp).where(User.user_id == user_id).scalar_subquery()

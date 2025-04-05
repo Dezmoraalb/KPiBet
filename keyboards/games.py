@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from fluent.runtime import FluentLocalization
@@ -48,3 +48,37 @@ def get_rps_game_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
     kb.adjust(3, 1)
     
     return kb.as_markup()
+
+
+def get_rps_webapp_kb(l10n: FluentLocalization):
+    """Клавіатура для веб-додатку гри камінь-ножиці-папір"""
+    kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [
+                KeyboardButton(
+                    text=l10n.format_value("rps-webapp-button"),
+                    web_app=WebAppInfo(url="https://illustrious-fenglisu-c771fe.netlify.app/")
+                )
+            ]
+        ],
+        resize_keyboard=True
+    )
+
+    return kb
+
+
+def get_ttt_webapp_kb(l10n: FluentLocalization):
+    """Клавіатура для веб-додатку гри камінь-ножиці-папір"""
+    kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [
+                KeyboardButton(
+                    text=l10n.format_value("rps-webapp-button"),
+                    web_app=WebAppInfo(url="https://illustrious-fenglisu-c771fe.netlify.app/")
+                )
+            ]
+        ],
+        resize_keyboard=True
+    )
+
+    return kb
