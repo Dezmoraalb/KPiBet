@@ -9,7 +9,8 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from fluent.runtime import FluentLocalization
 from games.dice_game import DiceGame
 from games.rps_game import RockPaperScissorsGame
-from keyboards import get_dice_game_kb, get_main_menu_kb, get_rps_game_kb, get_rps_webapp_kb
+from keyboards import get_dice_game_kb, get_main_menu_kb, get_rps_game_kb
+from keyboards.games import get_rps_webapp_kb, get_ttt_webapp_kb
 from db.connection import get_async_session
 from db.queries import get_user, update_user_xp, register_chat_member
 
@@ -134,7 +135,7 @@ async def cmd_rps_webapp_private(message: Message, l10n: FluentLocalization):
     """Обробник команди /ttt_app в чаті"""
     await message.answer(
         l10n.format_value("rps-webapp-start"),
-        reply_markup=get_rps_webapp_kb(l10n)
+        reply_markup=get_ttt_webapp_kb(l10n)
     )
 
 
@@ -152,7 +153,7 @@ async def process_webapp_data(message: Message, l10n: FluentLocalization):
             xp_reward = (player_count // 3) * 15
             if xp_reward == 0 and player_count > 0:
                 xp_reward = 15
-        elif player_count == 0:  # Если равно 0, то ничья
+        elif player_count == 0:
             result_text = l10n.format_value("rps-game-draw")
             xp_reward = 5
         else:
