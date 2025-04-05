@@ -6,8 +6,6 @@ __pycache__/
 *$py.class
 node_modules/
 
-games/
-
 # Distribution / packaging
 .Python
 env/
