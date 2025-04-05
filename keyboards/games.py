@@ -73,7 +73,7 @@ def get_ttt_webapp_kb(l10n: FluentLocalization):
             [
                 KeyboardButton(
                     text=l10n.format_value("rps-webapp-button"),
-                    web_app=WebAppInfo(url="https://illustrious-fenglisu-c771fe.netlify.app/")
+                    web_app=WebAppInfo(url="https://killsazer.github.io/React-TicTacToe/")
                 )
             ]
         ],

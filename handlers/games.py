@@ -134,7 +134,7 @@ async def cmd_rps_webapp_private(message: Message, l10n: FluentLocalization):
 async def cmd_rps_webapp_private(message: Message, l10n: FluentLocalization):
     """Обробник команди /ttt_app в чаті"""
     await message.answer(
-        l10n.format_value("rps-webapp-start"),
+        l10n.format_value("ttt-webapp-start"),
         reply_markup=get_ttt_webapp_kb(l10n)
     )
 
@@ -170,7 +170,13 @@ async def process_webapp_data(message: Message, l10n: FluentLocalization):
                 "score": abs(player_count),
                 "result_text": result_text,
                 "xp": xp_reward
-            })
+            }),
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+        await message.answer(
+            l10n.format_value("hello-msg", {"name": message.from_user.first_name}),
+            reply_markup=get_main_menu_kb(l10n)
         )
 
     except (json.JSONDecodeError, KeyError) as e:
