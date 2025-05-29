@@ -82,3 +82,55 @@ def get_ttt_webapp_kb(l10n: FluentLocalization):
 
     return kb
 
+
+def get_games_menu_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
+    """Меню ігор"""
+    kb = InlineKeyboardBuilder()
+    
+    # Основні ігри
+    kb.button(
+        text="🎲 Кості",
+        callback_data="game:dice"
+    )
+    kb.button(
+        text="🖐️ Камінь-ножиці-папір",
+        callback_data="game:rps"
+    )
+    
+    # Веб-додатки
+    kb.button(
+        text="🎮 Веб-ігри",
+        callback_data="games:webapp"
+    )
+    
+    # Кнопка повернення
+    kb.button(
+        text="⏪ Назад",
+        callback_data="main_menu"
+    )
+    
+    kb.adjust(2, 1, 1)
+    return kb.as_markup()
+
+
+def get_webapp_games_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
+    """Меню веб-ігор"""
+    kb = InlineKeyboardBuilder()
+    
+    kb.button(
+        text="🖐️ Rock-Paper-Scissors",
+        callback_data="webapp:rps"
+    )
+    kb.button(
+        text="⚫ Tic-Tac-Toe",
+        callback_data="webapp:ttt"
+    )
+    
+    kb.button(
+        text="⏪ Назад",
+        callback_data="games_menu"
+    )
+    
+    kb.adjust(1, 1, 1)
+    return kb.as_markup()
+

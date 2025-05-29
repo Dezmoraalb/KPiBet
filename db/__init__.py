@@ -13,14 +13,11 @@ logger = structlog.get_logger()
 async def create_tables():
     """Створення всіх таблиць в базі даних"""
     async with engine.begin() as conn:
-        # Відключення зовнішніх ключів під час створення таблиць
         await conn.execute(text("SET CONSTRAINTS ALL DEFERRED"))
-        
-        # Створення таблиць
+
         logger.info("Creating database tables...")
         await conn.run_sync(Base.metadata.create_all)
-        
-        # Включення зовнішніх ключів після створення таблиць
+
         await conn.execute(text("SET CONSTRAINTS ALL IMMEDIATE"))
         
     logger.info("Database tables created successfully")

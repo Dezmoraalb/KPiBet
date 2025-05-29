@@ -13,13 +13,13 @@ def get_profile_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
         callback_data="referral"
     )
     kb.button(
-        text=l10n.format_value("button-settings"),
-        callback_data="settings"
+        text="🎁 Мої бонуси",
+        callback_data="my_bonuses"
     )
 
     kb.button(
-        text=l10n.format_value("button-bonuses"),
-        callback_data="bonuses"
+        text=l10n.format_value("button-settings"),
+        callback_data="settings"
     )
 
     kb.button(
@@ -27,6 +27,6 @@ def get_profile_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
         callback_data="main_menu"
     )
 
-    kb.adjust(2, 1, 1)
+    kb.adjust(2, 2)
     
     return kb.as_markup()

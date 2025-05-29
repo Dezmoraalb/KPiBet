@@ -21,7 +21,6 @@ def get_main_menu_kb(l10n: FluentLocalization) -> InlineKeyboardMarkup:
         text=l10n.format_value("button-top"),
         callback_data="top"
     )
-
     kb.button(
         text=l10n.format_value("button-about"),
         callback_data="about"

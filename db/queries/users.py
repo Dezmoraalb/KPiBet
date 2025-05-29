@@ -109,11 +109,13 @@ async def register_chat_member(
     await session.commit()
     return membership
 
+
 async def get_user_chats(session: AsyncSession, user_id: int) -> List[int]:
     """Отримати ідентифікатори всіх чатів, в яких бере участь користувач"""
     stmt = select(ChatMembership.chat_id).where(ChatMembership.user_id == user_id)
     result = await session.execute(stmt)
     return result.scalars().all()
+
 
 async def get_referral_count(session: AsyncSession, user_id: int) -> int:
     """Отримати кількість запрошених користувачів"""

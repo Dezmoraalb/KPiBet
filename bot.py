@@ -1,4 +1,9 @@
 import asyncio
+import sys
+
+# Fix for Windows aiodns issue - MUST be at the very top
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 import structlog
 from aiogram import Bot, Dispatcher
