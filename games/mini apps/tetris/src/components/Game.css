@@ -1,0 +1,151 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.game-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.score, .level, .lines {
+  font-size: 1.2em;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.mobile-btn {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #333;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-btn.left {
+  background-color: #ff6b6b;
+  color: white;
+  border-color: #ff5252;
+}
+
+.mobile-btn.right {
+  background-color: #4dabf7;
+  color: white;
+  border-color: #339af0;
+}
+
+.mobile-btn.down {
+  background-color: #51cf66;
+  color: white;
+  border-color: #40c057;
+}
+
+.mobile-btn.rotate {
+  background-color: #ffd43b;
+  color: #333;
+  border-color: #fcc419;
+}
+
+.mobile-btn:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .game {
+    padding: 10px;
+  }
+
+  .game-info {
+    margin-bottom: 10px;
+  }
+
+  .score, .level, .lines {
+    font-size: 1em;
+  }
+
+  .mobile-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .mobile-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  /* Adjust board size for mobile */
+  .board {
+    transform: scale(0.9);
+    margin: 0 auto;
+  }
+}
+
+/* Landscape mode for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .game {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .game-info {
+    margin-bottom: 0;
+  }
+
+  .mobile-controls {
+    position: fixed;
+    right: 20px;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: auto;
+    flex-direction: column;
+  }
+} 
