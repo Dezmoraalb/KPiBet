@@ -4,7 +4,6 @@ import { useCallback } from 'react';
 
 import Board from './Board';
 import useTelegram from './Hooks/useTelegram';
-// import 
 
 export default function Game() {
   const {tg, WebAppMainButton} = useTelegram();
@@ -131,7 +130,6 @@ export default function Game() {
           tg.offEvent('mainButtonClicked', onSendData);
       }
   }, [tg, onSendData])
-
 
   return (
     <Board
